@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/GameOfVDA/A-engine-backup/Test-Mascro/src/main.c
+stdio.h
+-
+math.h
+-
+stdlib.h
+-
+macro.h
+-
+NodeAVL.h
+-
+
+src/NodeAVL.h
+stdio.h
+-
+stdlib.h
+-
+stdint.h
+-
+
+src/macro.h
+stdio.h
+-
+stdlib.h
+-
+stdint.h
+-
+

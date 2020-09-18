@@ -1,0 +1,4 @@
+E:/GameOfVDA/A-engine-backup/Test-Mascro/CMakeFiles/edit_cache.dir
+E:/GameOfVDA/A-engine-backup/Test-Mascro/CMakeFiles/main.dir
+E:/GameOfVDA/A-engine-backup/Test-Mascro/CMakeFiles/libraries.dir
+E:/GameOfVDA/A-engine-backup/Test-Mascro/CMakeFiles/rebuild_cache.dir
