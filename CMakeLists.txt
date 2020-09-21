@@ -17,9 +17,9 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 
 target_compile_features(main PRIVATE c_std_11) 
-add_library(libraries STATIC
- "${SRC_DIR}/macro.c" "${SRC_DIR}/macro.h"
+add_library(libraries STATIC 
  "${SRC_DIR}/NodeAVL.c" "${SRC_DIR}/NodeAVL.h"
+ "${SRC_DIR}/Stack.c" "${SRC_DIR}/Stack.h"
  )
 target_link_libraries(
   main

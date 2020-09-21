@@ -1,30 +1,23 @@
 #include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
-#include <macro.h>
+#include <stdlib.h> 
 #include <NodeAVL.h>
-typedef struct SV SV;
+
+///
+/// Recursive là phương pháp truy cập tree đến cuối, sau đó mới tiến hành làm việc ngược trở lại những nốt cha
+/// => giải pháp:
+        /// - dùng stack để LIFO: vào sau ra trước. để truy cập từ phần tử con đến phần tử cha.
+///
+typedef struct SV
+{
+    int id;
+    char* name;
+} SV;
 typedef struct NodeAVL NodeAVL;
+ 
 int 
 main()
-{
-    // Hello();//53.6 KB (54,957 bytes) - 56.0 KB (57,344 bytes)
-    SV sv = {
-        "vy dong a",
-        123
-    }; 
-    int a = print(42);
-    double b = print(3.14);
-    SV sv_output = print(sv);
-    printf("a: %d\n",a);
-    printf("b: %lf\n",b);
-    printf("sv.name: %s, sv.id: %d\n", sv_output.name, sv_output.id);
-    print("hello, world");
-    printf("=============================\n");
-
-    NodeAVL* root;
-    AVLTree_Init(&root);
-
+{ 
     int size = sizeof(SV);
 
     SV* sv1 = malloc(size);
@@ -52,25 +45,49 @@ main()
     sv6->name = "Vy dong F";
 
     
+    NodeAVL* root;
+    AVLTree_Init(&root);
+
+    AVLTree_Insert( 1, sv1, root);   
+    AVLTree_Insert( 2, sv2, root);  
+    AVLTree_Insert( 3, sv3, root); 
+    AVLTree_Insert( 4, sv4, root);  
+    AVLTree_Insert( 5, sv5, root);
+    AVLTree_Insert( 6, sv6, root);    
+    AVLTree_Insert( 7, sv2, root); 
+    AVLTree_Insert( 8, sv1, root);
+
+    // 2 1 3 4
+	// root = insert(root, 5); 
+    // 2 1 4 3 5
+	// root = insert(root, 6);
+    // 4 2 1 3 5 6
     
-    AVLTree_Add( 10, sv1, root);  
-    AVLTree_Add( 20, sv2, root);  
-    AVLTree_Add( 30, sv3, root);
-    AVLTree_Add( 40, sv4, root); 
-    AVLTree_Add( 50, sv5, root); 
-    AVLTree_Add( 25, sv6, root); 
-    
+    printf("\n======Recursive========\n"); AVLTree_DisplayRecursive(root);
+    printf("\n==============\n"); AVLTree_DisplayRecursive(root);
+    printf("\n==============\n");  AVLTree_DisplayRecursive(root);
+    printf("\n==============\n");   AVLTree_DisplayRecursive(root);
+    AVLTree_DisplayKey(root);
+    AVLTree_DisplayKey(root);
+    AVLTree_DisplayKey(root);
+    AVLTree_DisplayKey(root);
     AVLTree_DisplayKey(root);
     
-    // NodeAVL* result = AVLTree_Search(root, 25); 
-    // SV* svresult = (SV*)AVLTree_Search(root, 20)->data;
-    // printf("ID: %d, name: %s\n", svresult->id, svresult->name);
-    // free(result);
-    // free(root);
-
-    // result = root = NULL;
-    // if(result != NULL)
-    // printf("ID: %d, name: %s\n", ((SV*)result->data)->id, ((SV*)result->data)->name);
+    // exemple get data
+    NodeAVL* result = AVLTree_Search(root, 4); 
+    SV* svresult = (SV*)result->data;
+    printf("ID: %d, name: %s\n", svresult->id, svresult->name); 
+  
+    free(root);
+    free(sv1);
+    free(sv2);
+    free(sv3);
+    free(sv4);
+    free(sv5);
+    free(sv6);
+    root = NULL;
+    sv1 = sv2 = sv3 = sv4 = sv5 = NULL; 
+  
     fflush(stdin);
     getchar();
     return 0;
