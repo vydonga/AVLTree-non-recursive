@@ -9,12 +9,12 @@ typedef struct Stack {
     uint32_t capacity;  
 }Stack; 
   
-extern Stack* createStack(uint32_t capacity); 
-extern int isFull( Stack* stack); 
-extern int isEmpty( Stack* stack);  
-extern void push(  Stack* stack, void* item);
-extern void* pop( Stack* stack);
-extern void* peek(  Stack* stack);
+extern Stack* Stack_Init(uint32_t capacity); 
+extern int Stack_isFull( Stack* stack); 
+extern int Stack_isEmpty( Stack* stack);  
+extern void Stack_Push(  Stack* stack, void* item);
+extern void* Stack_Pop( Stack* stack);
+extern void* Stack_Peek(  Stack* stack);
   
 
 #endif

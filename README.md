@@ -1,7 +1,11 @@
 # AVLTree-non-recursive
-algorithm AVL Tree non recursive for C language
+algorithm AVL Tree non recursive for pure C language
 ## Features
  - Init
- - Add not
- - In order traversal
+ - Insert
+ - Get  
+ - Set 
+ - Remove 
+ - Display non recursive
+ - Display recursive
  - void* data

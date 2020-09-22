@@ -17,7 +17,9 @@ typedef struct NodeAVL
 } NodeAVL;
 extern void AVLTree_Init(NodeAVL** rootDest);
 extern void AVLTree_Insert(int16_t key,void* data,NodeAVL*  rootDest );
-extern NodeAVL* AVLTree_Search(  NodeAVL* root, int16_t key);
+extern NodeAVL* AVLTree_Get(NodeAVL* root, int16_t key);
+extern void AVLTree_Set(int16_t key,void* data, NodeAVL** rootDest);
+extern void AVLTree_Remove(int16_t key, NodeAVL** rootDest);
 extern void AVLTree_DisplayKey(NodeAVL *root)  ;
 extern void AVLTree_DisplayRecursive(NodeAVL *root);
 #endif

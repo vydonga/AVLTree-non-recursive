@@ -38,7 +38,7 @@ main()
 
     SV* sv5 = malloc(size);
     sv5->id = 5;
-    sv5->name = "Vy dong E";
+    sv5->name = "Vy dong E cua key 5";
 
     SV* sv6 = malloc(size);
     sv6->id = 6;
@@ -57,26 +57,30 @@ main()
     AVLTree_Insert( 7, sv2, root); 
     AVLTree_Insert( 8, sv1, root);
 
-    // 2 1 3 4
-	// root = insert(root, 5); 
-    // 2 1 4 3 5
-	// root = insert(root, 6);
-    // 4 2 1 3 5 6
+    // AVLTree_Remove(4, &root);
+    // AVLTree_Remove(1, &root);
+    // AVLTree_Remove(3, &root);
+    // AVLTree_Remove(6, &root);
+    // AVLTree_Remove(7, &root);
+    // AVLTree_Remove(2, &root);
+    // AVLTree_Remove(5, &root);
+     
     
-    printf("\n======Recursive========\n"); AVLTree_DisplayRecursive(root);
-    printf("\n==============\n"); AVLTree_DisplayRecursive(root);
-    printf("\n==============\n");  AVLTree_DisplayRecursive(root);
-    printf("\n==============\n");   AVLTree_DisplayRecursive(root);
-    AVLTree_DisplayKey(root);
-    AVLTree_DisplayKey(root);
-    AVLTree_DisplayKey(root);
-    AVLTree_DisplayKey(root);
-    AVLTree_DisplayKey(root);
+    printf("\n======Recursive========\n"); AVLTree_DisplayRecursive(root); 
     
-    // exemple get data
-    NodeAVL* result = AVLTree_Search(root, 4); 
-    SV* svresult = (SV*)result->data;
-    printf("ID: %d, name: %s\n", svresult->id, svresult->name); 
+    AVLTree_DisplayKey(root);
+    AVLTree_DisplayKey(root); 
+
+    AVLTree_Set(4, sv5, &root);
+    
+    // // // exemple get data
+    NodeAVL* result = AVLTree_Get(root, 4); 
+    if(result)
+    {
+        SV* svresult = (SV*)result->data;
+        printf("key: %d, ID: %d, name: %s\n",result->key, svresult->id, svresult->name);  
+    }
+    
   
     free(root);
     free(sv1);
@@ -87,6 +91,8 @@ main()
     free(sv6);
     root = NULL;
     sv1 = sv2 = sv3 = sv4 = sv5 = NULL; 
+
+    printf("\nket thuc chuong trinh===\n");
   
     fflush(stdin);
     getchar();
